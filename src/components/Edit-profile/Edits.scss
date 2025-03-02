@@ -1,15 +1,6 @@
-// Variables
-$primary-color: #17a2b8;
-$dark-color: #fff;
-$light-color: #f4f4f4;
-$danger-color: #dc3545;
-$success-color: #28a745;
-$max-width: 1100px;
-
-// Global Styles
 .hero-container {
   width: 100%;
-  background-color: $dark-color;
+  background-color: #fff;
   color: #fff;
   min-height: 100vh;
   font-family: 'Raleway', sans-serif;
@@ -18,7 +9,7 @@ $max-width: 1100px;
     padding: 2rem 0;
     
     .container {
-      max-width: $max-width;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 2rem;
       overflow: hidden;
@@ -27,7 +18,7 @@ $max-width: 1100px;
   
   .hero-title {
     font-size: 2.5rem;
-    color: $primary-color;
+    color: #000;
     margin-bottom: 1rem;
   }
   
@@ -61,7 +52,7 @@ $max-width: 1100px;
         
         &:focus {
           outline: none;
-          border-color: $primary-color;
+          border-color: #000;
         }
       }
       
@@ -99,7 +90,7 @@ $max-width: 1100px;
   // Button Styles
   .btn {
     display: inline-block;
-    background: $light-color;
+    background: #f4f4f4;
     color: #333;
     padding: 0.5rem 1.2rem;
     border: none;
@@ -114,18 +105,17 @@ $max-width: 1100px;
     }
     
     &.btn-primary {
-      background-color: $primary-color;
+      background-color: #000;
       color: #fff;
     }
     
     &.btn-light {
-      background-color: $light-color;
+      background-color: #f4f4f4;
       color: #333;
     }
   }
 }
 
-// Responsive Design
 @media (max-width: 768px) {
   .hero-container {
     .hero-title {
