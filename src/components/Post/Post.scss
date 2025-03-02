@@ -1,0 +1,320 @@
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$danger-color: #e74c3c;
+$success-color: #2ecc71;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+$border-color: #e1e1e1;
+$text-color: #333;
+$text-muted: #6c757d;
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin button-style($bg-color, $text-color: white) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+.posts-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  
+  .container {
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: $dark-color;
+  }
+  
+  .lead {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: $text-muted;
+    
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.post-form {
+  margin-bottom: 2rem;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  overflow: hidden;
+  
+  .form-header {
+    background-color: $light-color;
+    padding: 1rem;
+    border-bottom: 1px solid $border-color;
+    
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+  }
+  
+  form {
+    padding: 1rem;
+    
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      resize: vertical;
+      font-family: inherit;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+    
+    .submit-btn {
+      @include button-style($primary-color);
+      font-weight: 600;
+    }
+  }
+}
+
+.post-card {
+  @include flex(row, flex-start, flex-start);
+  padding: 1.25rem;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  background-color: white;
+  
+  .post-avatar {
+    margin-right: 1rem;
+    flex-shrink: 0;
+    
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #f0f0f0;
+      border: 1px solid $border-color;
+    }
+  }
+  
+  .post-content {
+    flex: 1;
+    
+    .post-header {
+      @include flex(row, space-between, flex-start);
+      margin-bottom: 0.5rem;
+      
+      .author-name {
+        font-weight: 600;
+        margin: 0;
+        font-size: 1rem;
+      }
+      
+      .post-date {
+        font-size: 0.85rem;
+        color: $text-muted;
+      }
+      
+      .post-actions-edit {
+        @include flex(row, flex-end, center);
+        gap: 0.5rem;
+        
+        .action-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.25rem;
+          color: $text-muted;
+          
+          &:hover {
+            color: $dark-color;
+          }
+          
+          &.edit:hover {
+            color: $primary-color;
+          }
+          
+          &.delete:hover {
+            color: $danger-color;
+          }
+        }
+      }
+    }
+    
+    .post-text {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    
+    .post-actions {
+      @include flex(row, flex-start, center);
+      gap: 1rem;
+      
+      .action-btn {
+        @include flex(row, center, center);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: $text-muted;
+        font-size: 0.9rem;
+        
+        i {
+          margin-right: 0.25rem;
+        }
+        
+        &:hover {
+          color: $dark-color;
+        }
+        
+        &.like:hover {
+          color: $success-color;
+        }
+        
+        &.dislike:hover {
+          color: $danger-color;
+        }
+        
+        .count {
+          margin-left: 0.25rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include flex(row, center, center);
+  z-index: 1000;
+  
+  .modal {
+    background-color: white;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    .modal-header {
+      @include flex(row, space-between, center);
+      padding: 1rem;
+      border-bottom: 1px solid $border-color;
+      
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+      
+      .close-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: $text-muted;
+        
+        &:hover {
+          color: $danger-color;
+        }
+      }
+    }
+    
+    .modal-body {
+      padding: 1rem;
+      
+      textarea {
+        width: 100%;
+        min-height: 120px;
+        padding: 0.75rem;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        resize: vertical;
+        font-family: inherit;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+      }
+      
+      p {
+        margin: 0;
+        line-height: 1.5;
+      }
+    }
+    
+    .modal-footer {
+      @include flex(row, flex-end, center);
+      padding: 1rem;
+      border-top: 1px solid $border-color;
+      gap: 0.5rem;
+      
+      .cancel-btn {
+        @include button-style($light-color, $text-color);
+      }
+      
+      .save-btn {
+        @include button-style($primary-color);
+      }
+      
+      .delete-btn {
+        @include button-style($danger-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .post-card {
+    flex-direction: column;
+    
+    .post-avatar {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .post-actions {
+    flex-wrap: wrap;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+

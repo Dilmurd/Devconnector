@@ -1,0 +1,145 @@
+// Variables
+$primary-color: #17a2b8;
+$dark-color: #fff;
+$light-color: #f4f4f4;
+$danger-color: #dc3545;
+$success-color: #28a745;
+$max-width: 1100px;
+
+// Global Styles
+.hero-container {
+  width: 100%;
+  background-color: $dark-color;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  
+  .hero-overlay {
+    padding: 2rem 0;
+    
+    .container {
+      max-width: $max-width;
+      margin: 0 auto;
+      padding: 0 2rem;
+      overflow: hidden;
+    }
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333333;
+    
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+  
+  .hero-note {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .hero-form {
+    .form-group {
+      margin-bottom: 1.2rem;
+      
+      .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+      }
+      
+      textarea.form-control {
+        height: 100px;
+      }
+      
+      .form-text {
+        display: block;
+        margin-top: 0.3rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+      }
+    }
+    
+    .social-networks {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      
+      .optional {
+        margin-left: 0.5rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+  }
+  
+  // Button Styles
+  .btn {
+    display: inline-block;
+    background: $light-color;
+    color: #333;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: opacity 0.2s ease-in;
+    outline: none;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    &.btn-primary {
+      background-color: $primary-color;
+      color: #fff;
+    }
+    
+    &.btn-light {
+      background-color: $light-color;
+      color: #333;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero-container {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+      
+      .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
