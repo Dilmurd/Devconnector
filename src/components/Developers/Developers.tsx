@@ -1,5 +1,5 @@
 import React from 'react';
-import './developers.scss';
+import './Developers.scss';
 
 interface Skill {
   name: string;
